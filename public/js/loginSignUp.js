@@ -5,6 +5,7 @@ signUpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const newUser = {
+        name: document.querySelector('#user-name').value,
         email: document.querySelector("#user-email").value,
         password: document.querySelector("#user-password").value,
     }

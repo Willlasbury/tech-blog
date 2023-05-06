@@ -5,7 +5,12 @@ const sequelize = require('../config');
 class User extends Model {}
 
 User.init({
-    // add properites here, ex:
+    name: {
+        type: DataTypes.STRING,
+        unique:true,
+        allowNull: false
+    },
+    
     email: {
         type: DataTypes.STRING,
         allowNull:false,
