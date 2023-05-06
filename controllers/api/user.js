@@ -14,22 +14,32 @@ router.get("/", async (req, res) => {
   }
 });
 
+// create a new user when signing up
 router.post("/", async (req, res) => {
   try {
-    // if(!req.session.userId){
-    //     return res.status(403).json({msg:"login first you knucklehead!"})
-    // } 
+
     const newUser = {
-        name: req.body.name,
-        password: req.body.password
+      email: req.body.email,
+      password: req.body.password
     }
-    const post = await User.create(newUser)
-    res.json(post)
+
+    const dbResponse = await User.create(newUser)
+
+    req.session.save(() => {
+      req.session.user_id = dbResponse.dataValues.id;
+      req.session.logged_in = true;
+    });
+    return res.status(200).json(dbResponse);
 
   } catch (err) {
     console.log(err);
     return res.status(500).json({ msg: "some error", err: err });
   }
 });
+
+
+
+
+
 
 module.exports = router

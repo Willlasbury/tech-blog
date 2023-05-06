@@ -28,9 +28,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(session(sess))
 
+app.use(express.static("public"))
+
+
 const allRoutes = require('./controllers')
 app.use(allRoutes)
-const User = require('./models/User')
+
 sequelize.sync({force:false}).then(()=>{
     app.listen(PORT,()=>{
         console.log(`listenin to port PORT!`)
