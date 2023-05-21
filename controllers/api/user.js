@@ -14,6 +14,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id
+    const data = await User.findByPk(id);
+    if (!data) {
+      return res.status(404).json({ msg: "User not found!" });
+    }
+    return res.json(data);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ msg: "some error", err: err });
+  }
+});
+
 // create a new user when signing up
 router.post("/", async (req, res) => {
   try {

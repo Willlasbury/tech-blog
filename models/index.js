@@ -12,6 +12,11 @@ Comment.belongsTo(Post, {
 })
 Post.hasMany(Comment)
 
+Comment.belongsTo(User, {
+    onDelete: 'CASCADE'
+})
+User.hasMany(Comment)
+
 
 
 module.exports = {User, Post, Comment}

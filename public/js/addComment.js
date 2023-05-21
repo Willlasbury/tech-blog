@@ -1,9 +1,8 @@
-const commentForms = document.querySelectorAll("form");
+const commentForm = document.querySelector("form");
 const commentInput = document.querySelector("#comment");
-const commentBtn = document.querySelectorAll("button");
+const commentBtn = document.querySelector("button");
 
-commentForms.forEach((form) => {
-  form.addEventListener("submit", async (event) => {
+  commentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const newComment = {
       text: commentInput.value,
@@ -17,6 +16,6 @@ commentForms.forEach((form) => {
       },
       body: JSON.stringify(newComment),
     });
-    form.reset()
+   location.reload()
   });
-});
+
