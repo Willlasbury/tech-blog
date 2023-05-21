@@ -1,6 +1,7 @@
-const postDelBtn = document.querySelectorAll("#delete-post");
+const delBtn = document.querySelectorAll("#delete-post");
+// TODO: add edit post func
 
-postDelBtn.forEach((button) => {
+delBtn.forEach((button) => {
   button.addEventListener("click", async (event) => {
     event.preventDefault();
     const id = button.dataset.post_id
