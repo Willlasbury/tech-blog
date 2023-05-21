@@ -1,6 +1,9 @@
 {{#each yourPosts}}
-<h3>{{title}}: by {{User.name}}</h3> 
+
+<h3 id="post-info">{{title}}: by {{User.name}}</h3> 
 <h4>{{createdAt}}</h4>
 <h4>{{content}}</h4>
-
+<button id="delete-post" data-post_id="{{id}}">delete</button>
 {{/each}}
+
+<script src="/js/deletePost.js"></script>

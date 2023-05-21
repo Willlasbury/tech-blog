@@ -16,6 +16,8 @@ const commentBtn = document.querySelector("button");
       },
       body: JSON.stringify(newComment),
     });
+
+    location.reload()
    location.reload()
   });
 
